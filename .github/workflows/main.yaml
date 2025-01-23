@@ -7,7 +7,7 @@ on:
 
 jobs:
     docker:
-        runs-on: debian
+        runs-on: ubuntu-latest
         environment:
             name: prod
         steps:
