@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+    automx2:
+        image: harbor-registry.atlantishq.de/beekama/mail-autoconfig:latest
+        container_name: automail
+        restart: always
+        ports: 
+            - "4243:4243"   # flask port
+        volumes:
+            #- /data/automail-db:/home/automx2               # persistent databse
+             - ./entrypoint.sh:/home/automx2/entrypoint.sh
+             - ./init.sql:/home/automx2/init.sql
+        environment:
+            - FLASK_ENV=production
+            - FLASK_APP=automx2.server:app

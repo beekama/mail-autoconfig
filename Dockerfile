@@ -7,6 +7,7 @@ RUN apt-get update && \
     curl \
     git \
     python3-venv \
+    sqlite3 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
