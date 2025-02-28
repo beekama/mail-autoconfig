@@ -8,9 +8,8 @@ services:
         ports: 
             - "4243:4243"   # flask port
         volumes:
-            #- /data/automail-db:/home/automx2               # persistent databse
-             - ./entrypoint.sh:/home/automx2/entrypoint.sh
              - ./init.sql:/home/automx2/init.sql
+             - /data/automail-db/:/data/automx2/  # persistent databse
         environment:
             - FLASK_ENV=production
             - FLASK_APP=automx2.server:app

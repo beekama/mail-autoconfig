@@ -13,11 +13,16 @@ RUN apt-get update && \
 # Install Python dependencies
 RUN pip install flask automx2 waitress
 
-# Create and switch to new user
+# Create new user
 RUN useradd --create-home automx2
-USER automx2
-
 WORKDIR /home/automx2
+
+# Create database-directory
+RUN mkdir -p /data/automx2
+RUN chown -R automx2:automx2 /data/automx2
+
+# Switch to new user
+USER automx2
 
 # Copy entrypoint-script into container
 COPY --chown=automx2 entrypoint.sh .
@@ -26,7 +31,7 @@ COPY --chown=automx2 entrypoint.sh .
 RUN echo "[automx2]\n\
 loglevel = DEBUG\n\
 db_echo = no\n\
-db_uri = sqlite:////home/automx2/automxdb.sqlite\n" > /home/automx2/.automx2.conf
+db_uri = sqlite:////data/automx2/automxdb.sqlite\n" > /home/automx2/.automx2.conf
 
 # Expose port 4243 for Flask
 # Set up Flask environment variable and run Flask
