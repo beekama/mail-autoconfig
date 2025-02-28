@@ -12,6 +12,11 @@ This project provides a Dockerized solution for creating a **Mail Autoconfigurat
     git clone https://github.com/yourusername/automx2-mail-autoconfig.git
     cd automx2-mail-autoconfig
    ```
+#### Create Volume and set permissions
+   ```
+    sudo mkdir -p /data/automail-db
+    sudo chown 1000:1000 automail-db
+   ```
 #### Customize `init.sql`
     Edit `init.sql` to configure your server settings (domain, perhabs also IMAP, SMTP settings).
     
