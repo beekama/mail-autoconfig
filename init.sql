@@ -8,8 +8,8 @@ DELETE FROM server_domain;
 INSERT INTO provider values(100, "long_name_example.com", "whatever-name");
 
 -- Define Server (IMAP + SMPT)
-INSERT INTO server VALUES(101, 10, "example.com", 587, 'smtp', 'STARTTLS', '%MAILADDRESS%', 'plain');    
-INSERT INTO server VALUES(102, 10, "example.com", 993, 'imap', 'SSL', '%MAILADDRESS%', 'plain');    
+INSERT INTO server VALUES(101, 10, "example.com", 587, 'smtp', 'STARTTLS', '%EMAILADDRESS%', 'plain');    
+INSERT INTO server VALUES(102, 10, "example.com", 993, 'imap', 'SSL', '%EMAILADDRESS%', 'plain');    
 
 -- Link Domain and Provider
 INSERT INTO domain VALUES(110, 'example.com', 100, NULL);
