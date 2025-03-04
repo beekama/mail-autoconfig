@@ -17,9 +17,12 @@ This project provides a Dockerized solution for creating a **Mail Autoconfigurat
     sudo mkdir -p /data/automail-db
     sudo chown 1000:1000 automail-db
    ```
-#### Customize `init.sql`
-    Edit `init.sql` to configure your server settings (domain, perhabs also IMAP, SMTP settings).
+#### Customize `init.sql` and set permissions
+Edit `init.sql` to configure your server settings (domain, perhabs also IMAP, SMTP settings).
     
+   ```
+   sudo chmod a+r init.sql
+   ```
 #### Build and Run the Docker Container
     ```
     docker-compose build
