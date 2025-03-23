@@ -2,16 +2,18 @@ FROM python:3.10-slim
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
     wget \
     curl \
     git \
     python3-venv \
     sqlite3 \
+    && apt-get autoremove -y \
+    && apt-get clean && \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-RUN pip install flask automx2 waitress
+RUN pip install --no-cache-dir flask automx2 waitress
 
 # Create new user
 RUN useradd --create-home automx2
