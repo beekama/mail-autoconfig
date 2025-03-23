@@ -9,7 +9,7 @@ RUN apt-get update && \
     python3-venv \
     sqlite3 \
     && apt-get autoremove -y \
-    && apt-get clean && \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
